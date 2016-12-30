@@ -22,5 +22,7 @@ void `$INSTANCE_NAME`_Start(uint32 CPR_new, uint16 CallPeriod_new);
 
 // Set power (betweeen -255 and +255)
 void `$INSTANCE_NAME`_SetPower(float power);
+
+int `$INSTANCE_NAME`_ReadEncoderCount();
     
 #endif

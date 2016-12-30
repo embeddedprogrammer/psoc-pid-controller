@@ -13,20 +13,13 @@
 #include "`$INSTANCE_NAME`_soccerMotor.h"
 #include "stdbool.h"
 
+#define `$INSTANCE_NAME`_ENCODER_ZERO_COUNT 0x8000
+
 void `$INSTANCE_NAME`_Start(uint32 CPR_new, uint16 CallPeriod_new)
 {
-    //Start the motor output PWM component.
+    //Start PWM and quadrature decoder
     `$INSTANCE_NAME`_PWM_Start();
-    
-    //Set up the variables for this motor.
-    //`$INSTANCE_NAME`_CPR = CPR_new;
-    //`$INSTANCE_NAME`_CallPeriod = CallPeriod_new;
-    
-    //Start the encoder.
     `$INSTANCE_NAME`_QuadDec_Start();
-        
-    //This is required for the decoder to actually start. Not sure why.
-    //`$INSTANCE_NAME`_QuadDec_TriggerCommand(`$INSTANCE_NAME`_QuadDec_MASK, `$INSTANCE_NAME`_QuadDec_CMD_RELOAD);
 }
 
 void `$INSTANCE_NAME`_SetPower(float power)
@@ -57,4 +50,27 @@ void `$INSTANCE_NAME`_SetPower(float power)
 	//Set H-bridge enable pin
 	`$INSTANCE_NAME`_EN_Write(true);
 }
- 
+
+int `$INSTANCE_NAME`_userCount = 0;
+int `$INSTANCE_NAME`_pidCount = 0;
+
+// Note: The counter only counts up to +/-0x800 (32768). On the newer motors this 
+// corresponds to 87.6 rotations and the older motors this corresponds to 1.65
+// Therefore to avoid overflow we will reset the encoder counter each time the
+// count is read and use software to keep track of the counts.
+int `$INSTANCE_NAME`_ProcessEncoderCount()
+{
+    int count = ((int)`$INSTANCE_NAME`_QuadDec_ReadCounter()) - `$INSTANCE_NAME`_ENCODER_ZERO_COUNT;
+	`$INSTANCE_NAME`_userCount += count;
+	`$INSTANCE_NAME`_pidCount += count;
+	`$INSTANCE_NAME`_QuadDec_TriggerCommand(`$INSTANCE_NAME`_QuadDec_MASK, `$INSTANCE_NAME`_QuadDec_CMD_RELOAD);
+}
+
+// Read user encoder count. Resets after read.
+int `$INSTANCE_NAME`_ReadEncoderCount()
+{
+	`$INSTANCE_NAME`_ProcessEncoderCount();
+	int count = `$INSTANCE_NAME`_userCount;
+	`$INSTANCE_NAME`_userCount = 0;
+	return count;
+}

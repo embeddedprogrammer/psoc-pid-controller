@@ -36,6 +36,8 @@ int getCommandLength(char cmd)
 	{
 	case '1': //Set PWM
 		return 2;
+	case '2': //Get encoder count
+		return 1;
 	default:
 		return 0;
 	}
@@ -43,7 +45,7 @@ int getCommandLength(char cmd)
 
 void processCommand(char cmd)
 {
-	int val;
+	int val, e1, e2, e3;
 	switch(cmd)
 	{
 	case '1': //Set PWM
@@ -52,7 +54,13 @@ void processCommand(char cmd)
 		SoccerMotor2_SetPower(val);
 		SoccerMotor3_SetPower(val);
 		printf("Motor power set to %d\r\n", val);
-		break;		
+		break;
+	case '2': //Set PWM
+		e1 = SoccerMotor1_ReadEncoderCount();
+		e2 = SoccerMotor2_ReadEncoderCount();
+		e3 = SoccerMotor3_ReadEncoderCount();
+		printf("Encoder Counts: %d %d %d\r\n", e1, e2, e3);
+		break;
 	default:
 		printf("'%c' is not a valid command character\r\n", cmd);
 	}
@@ -96,9 +104,6 @@ CY_ISR(UART_ISR)
 
 int main()
 {
-    float Kp = 3;
-    float Ki = 0.9;
-
     //Start the motor controllers.
     SoccerMotor1_Start(CPR, TICK_PERIOD);
     SoccerMotor2_Start(CPR, TICK_PERIOD);
