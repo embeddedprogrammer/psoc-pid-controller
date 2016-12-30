@@ -40,6 +40,8 @@ int getCommandLength(char cmd)
 		return 1;
 	case '3': //Get velocity
 		return 1;
+	case '4': //Set speed (PID)
+		return 2;
 	default:
 		return 0;
 	}
@@ -69,6 +71,11 @@ void processCommand(char cmd)
 		e3 = SoccerMotor3_GetVelocity();
 		printf("Velocity: %d %d %d\r\n", e1, e2, e3);
 		break;
+	case '4': //Control with PID values
+		val = (buffer[1] - '0')*100;
+		SoccerMotor1_SetSpeed(val);
+		printf("Motor speed set to %d counts per second\r\n", val);
+		break;		
 	default:
 		printf("'%c' is not a valid command character\r\n", cmd);
 	}
@@ -120,10 +127,6 @@ int main()
     SoccerMotor1_Start(TICK_PERIOD_MS);
     SoccerMotor2_Start(TICK_PERIOD_MS);
     SoccerMotor3_Start(TICK_PERIOD_MS);
-    
-    //SoccerMotor1_SetPIDConstants(Kp, Ki, 0);
-    //SoccerMotor2_SetPIDConstants(Kp, Ki, 0);
-    //SoccerMotor3_SetPIDConstants(Kp, Ki, 0);
     
     //Start the serial port.
     UART_Start();
