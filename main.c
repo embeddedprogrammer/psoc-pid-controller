@@ -19,11 +19,58 @@
 //How many counts per wheel rotation. If 0, doesn't use PID.
 #define CPR 512 * 9.7
 
-
 // Callback for the printf function
-void putdata( void* p, char c)
+void putdata(void* p, char c)
 {
 	UART_UartPutChar(c);
+}
+
+//SERIAL COMMUNICATION (Planning to put into separate file)
+int uart_pos = 0;
+#define UART_BUFFER_SIZE 10
+char buffer[UART_BUFFER_SIZE];
+
+int getCommandLength(char cmd)
+{
+	switch(cmd)
+	{
+	case '1': //Set PWM
+		return 2;
+	default:
+		return 0;
+	}
+}
+
+void processCommand(char cmd)
+{
+	int val;
+	switch(cmd)
+	{
+	case '1': //Set PWM
+		val = (buffer[1] - '0')*25;
+		SoccerMotor1_SetPower(val);
+		SoccerMotor2_SetPower(val);
+		SoccerMotor3_SetPower(val);
+		printf("Motor power set to %d\r\n", val);
+		break;		
+	default:
+		printf("'%c' is not a valid command character\r\n", cmd);
+	}
+}
+
+void recieveChar(char ch)
+{
+	if(ch == '\n' || ch == '\r')
+		uart_pos = 0;
+	else
+	{
+		buffer[uart_pos++] = ch;
+		if(uart_pos >= getCommandLength(buffer[0]))
+		{
+			processCommand(buffer[0]);
+			uart_pos = 0;
+		}
+	}
 }
 
 //The system timer ISR.
@@ -41,10 +88,9 @@ CY_ISR(UART_ISR)
 	// one interrupt to be generated. In this case we want to completely
 	// clear the FIFO, so we use a while loop.
 	while(UART_SpiUartGetRxBufferSize())
-	{
-		char ch = UART_UartGetChar();
-		UART_UartPutChar(ch);
-	}
+		recieveChar(UART_UartGetChar());
+		
+	// Clear interrupt (this avoids an infinite loop!)
 	UART_ClearRxInterruptSource(UART_INTR_RX_NOT_EMPTY);
 }
 
@@ -58,9 +104,9 @@ int main()
     SoccerMotor2_Start(CPR, TICK_PERIOD);
     SoccerMotor3_Start(CPR, TICK_PERIOD);
     
-    SoccerMotor1_SetPIDConstants(Kp, Ki, 0);
-    SoccerMotor2_SetPIDConstants(Kp, Ki, 0);
-    SoccerMotor3_SetPIDConstants(Kp, Ki, 0);
+    //SoccerMotor1_SetPIDConstants(Kp, Ki, 0);
+    //SoccerMotor2_SetPIDConstants(Kp, Ki, 0);
+    //SoccerMotor3_SetPIDConstants(Kp, Ki, 0);
     
     //Start the serial port.
     UART_Start();
@@ -89,7 +135,7 @@ int main()
             tick_Flag = 0;
             
             //Update the speed of all of the motors.
-            //SoccerMotor1_UpdateSpeed(M1_Speed);
+            //SoccerMotor1_UpdateSpeed(0);
             //SoccerMotor2_UpdateSpeed(M2_Speed);
             //SoccerMotor3_UpdateSpeed(M3_Speed);
             
