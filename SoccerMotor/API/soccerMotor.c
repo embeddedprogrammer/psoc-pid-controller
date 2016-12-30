@@ -15,11 +15,18 @@
 
 #define `$INSTANCE_NAME`_ENCODER_ZERO_COUNT 0x8000
 
-void `$INSTANCE_NAME`_Start(uint32 CPR_new, uint16 CallPeriod_new)
+int `$INSTANCE_NAME`_count = 0;
+int `$INSTANCE_NAME`_velocity = 0;
+int `$INSTANCE_NAME`_PERIOD_MS = 0;
+
+void `$INSTANCE_NAME`_Start(int period_ms)
 {
     //Start PWM and quadrature decoder
     `$INSTANCE_NAME`_PWM_Start();
     `$INSTANCE_NAME`_QuadDec_Start();
+	
+	//Store period
+	`$INSTANCE_NAME`_PERIOD_MS = period_ms;
 }
 
 void `$INSTANCE_NAME`_SetPower(float power)
@@ -51,26 +58,47 @@ void `$INSTANCE_NAME`_SetPower(float power)
 	`$INSTANCE_NAME`_EN_Write(true);
 }
 
-int `$INSTANCE_NAME`_userCount = 0;
-int `$INSTANCE_NAME`_pidCount = 0;
-
 // Note: The counter only counts up to +/-0x800 (32768). On the newer motors this 
 // corresponds to 87.6 rotations and the older motors this corresponds to 1.65
 // Therefore to avoid overflow we will reset the encoder counter each time the
 // count is read and use software to keep track of the counts.
-int `$INSTANCE_NAME`_ProcessEncoderCount()
+void `$INSTANCE_NAME`_ProcessEncoderCount()
 {
     int count = ((int)`$INSTANCE_NAME`_QuadDec_ReadCounter()) - `$INSTANCE_NAME`_ENCODER_ZERO_COUNT;
-	`$INSTANCE_NAME`_userCount += count;
-	`$INSTANCE_NAME`_pidCount += count;
+	`$INSTANCE_NAME`_count += count;
 	`$INSTANCE_NAME`_QuadDec_TriggerCommand(`$INSTANCE_NAME`_QuadDec_MASK, `$INSTANCE_NAME`_QuadDec_CMD_RELOAD);
 }
 
-// Read user encoder count. Resets after read.
+int `$INSTANCE_NAME`_lastUserCount = 0;
+int `$INSTANCE_NAME`_lastInternalCount = 0;
+
+// Read user encoder count. Resets count after read.
 int `$INSTANCE_NAME`_ReadEncoderCount()
 {
 	`$INSTANCE_NAME`_ProcessEncoderCount();
-	int count = `$INSTANCE_NAME`_userCount;
-	`$INSTANCE_NAME`_userCount = 0;
+	int count = `$INSTANCE_NAME`_count - `$INSTANCE_NAME`_lastUserCount;
+	`$INSTANCE_NAME`_lastUserCount = `$INSTANCE_NAME`_count;
 	return count;
+}
+
+// Read user encoder count. Resets count after read.
+int `$INSTANCE_NAME`_ReadInternalCount()
+{
+	`$INSTANCE_NAME`_ProcessEncoderCount();
+	int count = `$INSTANCE_NAME`_count - `$INSTANCE_NAME`_lastInternalCount;
+	`$INSTANCE_NAME`_lastInternalCount = `$INSTANCE_NAME`_count;
+	return count;
+}
+
+// Update velocity, process PID control, etc.
+void `$INSTANCE_NAME`_tick()
+{
+	int diff = `$INSTANCE_NAME`_ReadInternalCount();
+	`$INSTANCE_NAME`_velocity = diff * 1000 / `$INSTANCE_NAME`_PERIOD_MS;
+}
+
+// Read user encoder count. Resets count after read.
+int `$INSTANCE_NAME`_GetVelocity()
+{
+	return `$INSTANCE_NAME`_velocity;
 }

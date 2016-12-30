@@ -16,13 +16,18 @@
 #include "project.h"
     
 // Sets up the component. This should be called before any other API fuction for this component.
-// CPR- Counts Per Revolution. If 0, the encoder is not used.
-// CallPeriod- The time between UpdateSpeed function calls, in milliseconds.
-void `$INSTANCE_NAME`_Start(uint32 CPR_new, uint16 CallPeriod_new);
+void `$INSTANCE_NAME`_Start(int period_ms);
 
 // Set power (betweeen -255 and +255)
 void `$INSTANCE_NAME`_SetPower(float power);
 
+// Read user encoder count. Resets count after read.
 int `$INSTANCE_NAME`_ReadEncoderCount();
+
+// Get velocity in counts/second. The velocity is updated each time the tick function is called.
+int `$INSTANCE_NAME`_GetVelocity();
+
+// Update velocity calculation, process PID control, etc.
+void `$INSTANCE_NAME`_tick();
     
 #endif

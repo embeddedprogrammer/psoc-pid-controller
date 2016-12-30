@@ -13,8 +13,8 @@
 #include "project.h"
 #include "stdbool.h"
 
-//The tick period in ms.
-#define TICK_PERIOD  20
+#define CLOCK_FREQ_KHZ 32
+#define TICK_PERIOD_MS 20
 
 //How many counts per wheel rotation. If 0, doesn't use PID.
 #define CPR 512 * 9.7
@@ -38,6 +38,8 @@ int getCommandLength(char cmd)
 		return 2;
 	case '2': //Get encoder count
 		return 1;
+	case '3': //Get velocity
+		return 1;
 	default:
 		return 0;
 	}
@@ -60,6 +62,12 @@ void processCommand(char cmd)
 		e2 = SoccerMotor2_ReadEncoderCount();
 		e3 = SoccerMotor3_ReadEncoderCount();
 		printf("Encoder Counts: %d %d %d\r\n", e1, e2, e3);
+		break;
+	case '3': //Get velocity
+		e1 = SoccerMotor1_GetVelocity();
+		e2 = SoccerMotor2_GetVelocity();
+		e3 = SoccerMotor3_GetVelocity();
+		printf("Velocity: %d %d %d\r\n", e1, e2, e3);
 		break;
 	default:
 		printf("'%c' is not a valid command character\r\n", cmd);
@@ -85,9 +93,13 @@ void recieveChar(char ch)
 volatile uint8 tick_Flag = 0;
 CY_ISR(Tick_ISR)
 {
-	uint32 mask = Tick_Timer_GetInterruptSourceMasked();
-	tick_Flag = 1;
-	Tick_Timer_ClearInterrupt(mask);
+	// PID control, etc
+	SoccerMotor1_tick();
+	SoccerMotor2_tick();
+	SoccerMotor3_tick();
+	
+	// Clear interrupt (this avoids an infinite loop!)
+	Tick_Timer_ClearInterrupt(Tick_Timer_INTR_MASK_TC);
 }
 
 CY_ISR(UART_ISR)
@@ -105,9 +117,9 @@ CY_ISR(UART_ISR)
 int main()
 {
     //Start the motor controllers.
-    SoccerMotor1_Start(CPR, TICK_PERIOD);
-    SoccerMotor2_Start(CPR, TICK_PERIOD);
-    SoccerMotor3_Start(CPR, TICK_PERIOD);
+    SoccerMotor1_Start(TICK_PERIOD_MS);
+    SoccerMotor2_Start(TICK_PERIOD_MS);
+    SoccerMotor3_Start(TICK_PERIOD_MS);
     
     //SoccerMotor1_SetPIDConstants(Kp, Ki, 0);
     //SoccerMotor2_SetPIDConstants(Kp, Ki, 0);
@@ -121,9 +133,9 @@ int main()
     init_printf(NULL, putdata);
     
     //Start the timer and ISR.
-//    Tick_Timer_WritePeriod(US_IN_MS * TICK_PERIOD);
-//    Tick_Timer_Start();tb
-//    Tick_INT_StartEx(Tick_ISR);
+    Tick_Timer_Start();
+	Tick_Timer_WritePeriod(CLOCK_FREQ_KHZ * TICK_PERIOD_MS);
+    Tick_INT_StartEx(Tick_ISR);
 
     CyDelay(1000);
     printf("Hello there!\n");
