@@ -26,15 +26,15 @@ int `$INSTANCE_NAME`_lastInternalCount = 0;
 float `$INSTANCE_NAME`_velocity = 0;
 
 //PID control
-float `$INSTANCE_NAME`_qpps = 1000;
 float `$INSTANCE_NAME`_Kp = 1;
 float `$INSTANCE_NAME`_Ki = 10;
+float `$INSTANCE_NAME`_qpps = 1000;
 float `$INSTANCE_NAME`_integrator = 0;
 float `$INSTANCE_NAME`_desiredSpeed = 0;
 bool `$INSTANCE_NAME`_pidControlEnabled = false;
 
 
-// **************** INTERNAL FUNCTIONS (USER FUNCTIONS AT BOTTOM OF FILE) ****************
+// *********************** INTERNAL FUNCTIONS (USER FUNCTIONS AT BOTTOM OF FILE) ***********************
 
 // Sets PWM duty cycle between -255 to +255.
 void `$INSTANCE_NAME`_SetPowerInternal(float power)
@@ -111,11 +111,10 @@ void `$INSTANCE_NAME`_pidControl()
 	
 	// Calculate power
 	float power = (`$INSTANCE_NAME`_Kp*error + `$INSTANCE_NAME`_integrator)*255/`$INSTANCE_NAME`_qpps;
-	printf("Vel %d Pwr %d\r\n", (int)`$INSTANCE_NAME`_velocity, (int)power);
 	`$INSTANCE_NAME`_SetPowerInternal(power);
 }
 
-// **************** TOP-LEVEL USER API FUNCTIONS ****************
+// ******************************** TOP-LEVEL USER API FUNCTIONS ********************************
 
 // Sets up the component. This should be called before any other API fuction for this component.
 void `$INSTANCE_NAME`_Start(int period_ms, int tau_ms)
@@ -124,6 +123,13 @@ void `$INSTANCE_NAME`_Start(int period_ms, int tau_ms)
     `$INSTANCE_NAME`_PWM_Start();
     `$INSTANCE_NAME`_QuadDec_Start();
 	
+	//Store parameters
+	`$INSTANCE_NAME`_SetTickPeriodAndTau(period_ms, tau_ms);
+}
+
+// Modify the tick period (for the timer) and tau (velocity filter corner frequency)
+void `$INSTANCE_NAME`_SetTickPeriodAndTau(int period_ms, int tau_ms)
+{
 	//Store parameters
 	`$INSTANCE_NAME`_Ts = period_ms/1000.0;
 	`$INSTANCE_NAME`_tau = tau_ms/1000.0;
@@ -172,12 +178,12 @@ void `$INSTANCE_NAME`_SetSpeed(float speed)
 	`$INSTANCE_NAME`_desiredSpeed = speed;
 }
 
-// Set PID constants
-void `$INSTANCE_NAME`_SetPIDConstants(int fullSpeedCountsPerSecond, int Kp, int Ki)
+// Set PID constants. The qpps is the maximum quadrature pulses per second under expected load. 
+void `$INSTANCE_NAME`_SetPIDConstants(float Kp, float Ki, float qpps)
 {
-	`$INSTANCE_NAME`_qpps = fullSpeedCountsPerSecond;
 	`$INSTANCE_NAME`_Kp = Kp;
 	`$INSTANCE_NAME`_Ki = Ki;
+	`$INSTANCE_NAME`_qpps = qpps;
 }
 
 // Read user encoder count. Resets count after read.

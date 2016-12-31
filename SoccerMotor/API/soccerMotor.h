@@ -18,6 +18,9 @@
 // Sets up the component. This should be called before any other API fuction for this component.
 void `$INSTANCE_NAME`_Start(int period_ms, int tau_ms);
 
+// Modify the tick period (for the timer) and tau (velocity filter corner frequency)
+void `$INSTANCE_NAME`_SetTickPeriodAndTau(int period_ms, int tau_ms);
+
 // Disengages the motor control by writing a low to the enable pin. 
 // This means that each motor terminal will be floating/high-impedance, which allows
 // the motor to spin freely. (Of course there will still be a lot of mechanical resistance
@@ -30,8 +33,8 @@ void `$INSTANCE_NAME`_SetPower(float power);
 // Set speed using PID control
 void `$INSTANCE_NAME`_SetSpeed(float speed);
 
-// Set PID constants
-void `$INSTANCE_NAME`_SetPIDConstants(int fullSpeedCountsPerSecond, int Kp, int Ki);
+// Set PID constants. The qpps is the maximum quadrature pulses per second under expected load. 
+void `$INSTANCE_NAME`_SetPIDConstants(float Kp, float Ki, float qpps);
 
 // Read user encoder count. Resets count after read.
 int `$INSTANCE_NAME`_ReadEncoderCount();
