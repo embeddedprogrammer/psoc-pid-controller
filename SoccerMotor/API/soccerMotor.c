@@ -90,7 +90,7 @@ void `$INSTANCE_NAME`_updateVelocity()
 	int diff = `$INSTANCE_NAME`_ReadInternalCount();
 	float tau = `$INSTANCE_NAME`_tau;
 	float Ts = `$INSTANCE_NAME`_Ts;
-	`$INSTANCE_NAME`_velocity = (2*tau-Ts)/(2*tau+Ts)*`$INSTANCE_NAME`_velocity + 2/(2*tau+Ts)*diff;	
+	`$INSTANCE_NAME`_velocity = (2*tau-Ts)/(2*tau+Ts)*`$INSTANCE_NAME`_velocity + 2/(2*tau+Ts)*diff;
 	//`$INSTANCE_NAME`_velocity = diff / Ts;
 }
 

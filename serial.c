@@ -19,7 +19,7 @@
 char buffer[UART_BUFFER_SIZE];
 int uart_pos = 0;
 
-#define DEBUG_SERIAL
+//#define DEBUG_SERIAL
 
 // This macro simply erases all the printd functions if DEBUG_SERIAL is not defined.
 // This frees 3% of the flash.
@@ -104,10 +104,11 @@ void processCommand(char cmd)
 	case 't': //Set time constants (tick period and velocity filter corner frequency)
 		period_ms = unpack_f(buffer, 1);
 		tau_ms = unpack_f(buffer, 5);
-		Tick_Timer_WritePeriod(CLOCK_FREQ_KHZ * period_ms);
 		SoccerMotor1_SetTickPeriodAndTau(period_ms, tau_ms);
 		SoccerMotor2_SetTickPeriodAndTau(period_ms, tau_ms);
 		SoccerMotor3_SetTickPeriodAndTau(period_ms, tau_ms);
+		Tick_Timer_WritePeriod(CLOCK_FREQ_KHZ * period_ms);
+		Tick_Timer_TriggerCommand(Tick_Timer_MASK, Tick_Timer_CMD_RELOAD);
 		printd("Time constants set. period = %d ms, tau = %d ms\r\n", (int)period_ms, (int)tau_ms);
 		break;
 	case 'v': //Get velocity
@@ -140,6 +141,9 @@ void processCommand(char cmd)
 		printd("'%c' is not a valid command character\r\n", cmd);
 		break;
 	}
+	
+	// Flash blue light each time we recieve a message
+	LED1_Write(!LED1_Read());
 }
 
 int getCommandLength(char cmd)
