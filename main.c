@@ -15,6 +15,7 @@
 
 #define CLOCK_FREQ_KHZ 32
 #define TICK_PERIOD_MS 20
+#define CONTROL_TAU_MS 50
 
 //How many counts per wheel rotation. If 0, doesn't use PID.
 #define CPR 512 * 9.7
@@ -124,9 +125,9 @@ CY_ISR(UART_ISR)
 int main()
 {
     //Start the motor controllers.
-    SoccerMotor1_Start(TICK_PERIOD_MS);
-    SoccerMotor2_Start(TICK_PERIOD_MS);
-    SoccerMotor3_Start(TICK_PERIOD_MS);
+    SoccerMotor1_Start(TICK_PERIOD_MS, CONTROL_TAU_MS);
+    SoccerMotor2_Start(TICK_PERIOD_MS, CONTROL_TAU_MS);
+    SoccerMotor3_Start(TICK_PERIOD_MS, CONTROL_TAU_MS);
     
     //Start the serial port.
     UART_Start();

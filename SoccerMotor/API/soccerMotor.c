@@ -16,7 +16,8 @@
 #define `$INSTANCE_NAME`_ENCODER_ZERO_COUNT 0x8000
 
 // TICK period
-int `$INSTANCE_NAME`_PERIOD_MS = 0;
+float `$INSTANCE_NAME`_Ts;
+float `$INSTANCE_NAME`_tau;
 
 // Quadrature counting
 int `$INSTANCE_NAME`_count = 0;
@@ -27,8 +28,8 @@ float `$INSTANCE_NAME`_velocity = 0;
 //PID control
 float `$INSTANCE_NAME`_qpps = 1000;
 float `$INSTANCE_NAME`_Kp = 1;
-float `$INSTANCE_NAME`_Ki = 0;
-float `$INSTANCE_NAME`_Kd = 0;
+float `$INSTANCE_NAME`_Ki = 10;
+float `$INSTANCE_NAME`_integrator = 0;
 float `$INSTANCE_NAME`_desiredSpeed = 0;
 bool `$INSTANCE_NAME`_pidControlEnabled = false;
 
@@ -82,32 +83,53 @@ int `$INSTANCE_NAME`_ReadInternalCount()
 	return count;
 }
 
+// Update velocity. Use the dirty derivative (a discrete-time tustin-approximation of a LPF)
+// to smooth the measured wheel velocity. The parameter tau corresponds to the corner frequency of the LPF.
 void `$INSTANCE_NAME`_updateVelocity()
 {
 	int diff = `$INSTANCE_NAME`_ReadInternalCount();
-	`$INSTANCE_NAME`_velocity = diff * 1000 / `$INSTANCE_NAME`_PERIOD_MS;
+	float tau = `$INSTANCE_NAME`_tau;
+	float Ts = `$INSTANCE_NAME`_Ts;
+	`$INSTANCE_NAME`_velocity = (2*tau-Ts)/(2*tau+Ts)*`$INSTANCE_NAME`_velocity + 2/(2*tau+Ts)*diff;	
+	//`$INSTANCE_NAME`_velocity = diff / Ts;
 }
 
+// Note: Since we are controlling velocity this is actually a 1st order system,
+// thus we only need a PI controller.
 void `$INSTANCE_NAME`_pidControl()
 {
-	float power = `$INSTANCE_NAME`_desiredSpeed*`$INSTANCE_NAME`_Kp*255/`$INSTANCE_NAME`_qpps; // + `$INSTANCE_NAME`_Ki + `$INSTANCE_NAME`_Kd;
+	// Calc error
+	float error = `$INSTANCE_NAME`_desiredSpeed - `$INSTANCE_NAME`_velocity;
+	
+	// Limit integrator
+	`$INSTANCE_NAME`_integrator += error*`$INSTANCE_NAME`_Ki*`$INSTANCE_NAME`_Ts;
+	float integratorMax = `$INSTANCE_NAME`_qpps;
+	if(`$INSTANCE_NAME`_integrator > integratorMax)
+		`$INSTANCE_NAME`_integrator = integratorMax;
+	else if(`$INSTANCE_NAME`_integrator < -integratorMax)
+		`$INSTANCE_NAME`_integrator = -integratorMax;
+	
+	// Calculate power
+	float power = (`$INSTANCE_NAME`_Kp*error + `$INSTANCE_NAME`_integrator)*255/`$INSTANCE_NAME`_qpps;
+	printf("Vel %d Pwr %d\r\n", (int)`$INSTANCE_NAME`_velocity, (int)power);
 	`$INSTANCE_NAME`_SetPowerInternal(power);
 }
 
 // **************** TOP-LEVEL USER API FUNCTIONS ****************
 
 // Sets up the component. This should be called before any other API fuction for this component.
-void `$INSTANCE_NAME`_Start(int period_ms)
+void `$INSTANCE_NAME`_Start(int period_ms, int tau_ms)
 {
     //Start PWM and quadrature decoder
     `$INSTANCE_NAME`_PWM_Start();
     `$INSTANCE_NAME`_QuadDec_Start();
 	
-	//Store period
-	`$INSTANCE_NAME`_PERIOD_MS = period_ms;
+	//Store parameters
+	`$INSTANCE_NAME`_Ts = period_ms/1000.0;
+	`$INSTANCE_NAME`_tau = tau_ms/1000.0;
 }
 
-// Disengages the motor control by writing a low to the enable pin. 
+// Disengage the motor control by writing a low to the enable pin. 
 // This means that each motor terminal will be floating/high-impedance, which allows
 // the motor to spin freely. (Of course there will still be a lot of mechanical resistance
 // due to the gearbox and so forth, but there will be no electrical resistance)
@@ -137,20 +159,25 @@ void `$INSTANCE_NAME`_SetPower(float power)
 void `$INSTANCE_NAME`_SetSpeed(float speed)
 {
 	//Turn on PID control
-	`$INSTANCE_NAME`_pidControlEnabled = true;
-	`$INSTANCE_NAME`_desiredSpeed = speed;
+	if(!`$INSTANCE_NAME`_pidControlEnabled)
+	{
+		`$INSTANCE_NAME`_pidControlEnabled = true;
+		`$INSTANCE_NAME`_integrator = 0;
+		
+		//Set H-bridge enable pin
+		`$INSTANCE_NAME`_EN_Write(true);
+	}
 	
-	//Set H-bridge enable pin
-	`$INSTANCE_NAME`_EN_Write(true);
+	// Set desired speed
+	`$INSTANCE_NAME`_desiredSpeed = speed;
 }
 
 // Set PID constants
-void `$INSTANCE_NAME`_SetPIDConstants(int fullSpeedCountsPerSecond, int Kp, int Ki, int Kd)
+void `$INSTANCE_NAME`_SetPIDConstants(int fullSpeedCountsPerSecond, int Kp, int Ki)
 {
 	`$INSTANCE_NAME`_qpps = fullSpeedCountsPerSecond;
 	`$INSTANCE_NAME`_Kp = Kp;
 	`$INSTANCE_NAME`_Ki = Ki;
-	`$INSTANCE_NAME`_Kd = Kd;
 }
 
 // Read user encoder count. Resets count after read.

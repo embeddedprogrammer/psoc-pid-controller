@@ -16,7 +16,7 @@
 #include "project.h"
     
 // Sets up the component. This should be called before any other API fuction for this component.
-void `$INSTANCE_NAME`_Start(int period_ms);
+void `$INSTANCE_NAME`_Start(int period_ms, int tau_ms);
 
 // Disengages the motor control by writing a low to the enable pin. 
 // This means that each motor terminal will be floating/high-impedance, which allows
@@ -31,7 +31,7 @@ void `$INSTANCE_NAME`_SetPower(float power);
 void `$INSTANCE_NAME`_SetSpeed(float speed);
 
 // Set PID constants
-void `$INSTANCE_NAME`_SetPIDConstants(int fullSpeedCountsPerSecond, int Kp, int Ki, int Kd);
+void `$INSTANCE_NAME`_SetPIDConstants(int fullSpeedCountsPerSecond, int Kp, int Ki);
 
 // Read user encoder count. Resets count after read.
 int `$INSTANCE_NAME`_ReadEncoderCount();
