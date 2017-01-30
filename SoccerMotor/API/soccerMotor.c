@@ -110,7 +110,7 @@ void `$INSTANCE_NAME`_pidControl()
 		`$INSTANCE_NAME`_integrator = -integratorMax;
 	
 	// Calculate power
-	float power = (`$INSTANCE_NAME`_Kp*error + `$INSTANCE_NAME`_integrator)*255/`$INSTANCE_NAME`_qpps;
+	float power = (`$INSTANCE_NAME`_Kp*`$INSTANCE_NAME`_desiredSpeed + `$INSTANCE_NAME`_integrator)*255/`$INSTANCE_NAME`_qpps;
 	`$INSTANCE_NAME`_SetPowerInternal(power);
 }
 
