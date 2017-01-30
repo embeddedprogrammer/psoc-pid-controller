@@ -167,10 +167,12 @@ void `$INSTANCE_NAME`_SetSpeed(float speed)
 	//Turn on PID control
 	if(!`$INSTANCE_NAME`_pidControlEnabled)
 	{
-		`$INSTANCE_NAME`_pidControlEnabled = true;
+		// Re-initialize PID control - if integrator and pwm values aren't zero it could cause motor to jerk.
 		`$INSTANCE_NAME`_integrator = 0;
+		`$INSTANCE_NAME`_pidControlEnabled = true;
+		`$INSTANCE_NAME`_pidControl();
 		
-		//Set H-bridge enable pin
+		// Set H-bridge enable pin
 		`$INSTANCE_NAME`_EN_Write(true);
 	}
 	
