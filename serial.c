@@ -179,15 +179,10 @@ int getCommandLength(char cmd)
 
 void serial_recieveChar(char ch)
 {
-	if(ch == '\n' || ch == '\r')
-		uart_pos = 0;
-	else
+	buffer[uart_pos++] = ch;
+	if(uart_pos >= getCommandLength(buffer[0]))
 	{
-		buffer[uart_pos++] = ch;
-		if(uart_pos >= getCommandLength(buffer[0]))
-		{
-			processCommand(buffer[0]);
-			uart_pos = 0;
-		}
+		processCommand(buffer[0]);
+		uart_pos = 0;
 	}
 }
