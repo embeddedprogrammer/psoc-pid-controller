@@ -192,6 +192,14 @@
 <v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadB_PM.lst</v>
 <v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadDec.lst</v>
 <v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadDec_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_soccerMotor.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_EN.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_EN_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Neg.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Neg_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Pos.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Pos_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_PWM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
