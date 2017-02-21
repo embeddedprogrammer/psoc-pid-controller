@@ -5,8 +5,10 @@ import matplotlib.pyplot as plt
 import threading
 import sys
 
-#ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) #linux
 ser = serial.Serial('COM11', 115200, timeout=None) #windows
+#ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) #linux
+#ser = serial.Serial('/dev/ttyAMA0', 115200, timeout=None) #linux, (read note on webpage about ttyAMA0 first)
+
 stopFlag = False
 printingReceivedCharacters = True
 

@@ -3,8 +3,9 @@ import time
 import serial
 import matplotlib.pyplot as plt
 
-#ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) #linux
 ser = serial.Serial('COM11', 115200, timeout=None) #windows
+#ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) #linux
+#ser = serial.Serial('/dev/ttyAMA0', 115200, timeout=None) #linux, (read note on webpage about ttyAMA0 first)
 
 def writeFloat(f):
 	ser.write(struct.pack('>i', int(f*1000)))

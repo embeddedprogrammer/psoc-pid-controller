@@ -5,7 +5,9 @@ import threading, time, serial
 stopFlag = False #Flag to determine when to end program
 readAsBytes = False # Flag to read serial data as bytes instead of text
 
-ser = serial.Serial('COM11', 115200, timeout=None)
+ser = serial.Serial('COM11', 115200, timeout=None) #windows
+#ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) #linux
+#ser = serial.Serial('/dev/ttyAMA0', 115200, timeout=None) #linux, (read note on webpage about ttyAMA0 first)
 
 def serialWrite():
   global stopFlag

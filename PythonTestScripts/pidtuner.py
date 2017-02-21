@@ -3,9 +3,12 @@ import time
 import serial
 import matplotlib.pyplot as plt
 
-#ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) #linux
 ser = serial.Serial('COM11', 115200, timeout=None) #windows
+#ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) #linux
+#ser = serial.Serial('/dev/ttyAMA0', 115200, timeout=None) #linux, (read note on webpage about ttyAMA0 first)
 
+# Note: If you would like to port the readFloat and writeFloat functions to C++, simply use the functions provided 
+# in the PSoC implementation: https://github.com/embeddedprogrammer/psoc-pid-controller/blob/master/serial.c
 def writeFloat(f):
 	ser.write(struct.pack('>i', int(f*1000)))
 def readFloat():
@@ -41,15 +44,15 @@ def disengage():
 	
 totalTime = 3   #seconds
 sampleRate = 50 #samples per second
-pulsePerRotation = 116.16 #New motors
 #pulsePerRotation = 4955 #Old motors
-speedM1 = 2
-speedM2 = 2
-speedM3 = 2
+pulsePerRotation = 116.2 #New motors
+
+speedM1 = 2 # rot/s
+speedM2 = 2 # rot/s
+speedM3 = 2 # rot/s
 
 # Set the PIDQ values for all motors
 setPID(0, 1, 1, 800)
-#setPID(0, 1, 0, 800)
 
 # Set tick period (triggers PID control) and velocity filter corner frequency
 setT(20, 50)
@@ -60,8 +63,6 @@ speedsM1 = []
 speedsM2 = []
 speedsM3 = []
 
-#setPower(80, 80, 80)
-#setSpeed(0, 0, 0)
 setSpeed(speedM1*pulsePerRotation, speedM2*pulsePerRotation, speedM3*pulsePerRotation)
 
 for i in range(0,totalTime * sampleRate):
@@ -78,7 +79,6 @@ plt.plot(times, speedsM2) #green
 plt.plot(times, speedsM3) #red
 plt.legend(['motor1', 'motor2', 'motor3'], loc='lower right')
 plt.plot([0, totalTime], [speedM1, speedM1])
-
 
 plt.ylabel('Rotations per second for ' + str(len(speedsM1)) + ' samples')
 plt.xlabel('Sample Time (s)')
