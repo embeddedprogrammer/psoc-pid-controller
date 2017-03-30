@@ -1,5 +1,5 @@
 /* ========================================
- * 
+ *
  * Copyright YOUR COMPANY, THE YEAR
  * All Rights Reserved
  * UNPUBLISHED, LICENSED SOFTWARE.
@@ -101,6 +101,19 @@ void processCommand(char cmd)
 			SoccerMotor3_SetPIDConstants(Kp, Ki, qpps);
 		printd("PID constants set for motor %d. Kp = %d, Ki = %d, qpps = %d\r\n", motor, (int)Kp, (int)Ki, (int)qpps);
 		break;
+	case 'a': //Set model and dither constants
+		motor = (buffer[1] - '0');
+		offset = unpack_f(buffer, 2);
+		dither_pwm_max = unpack_f(buffer, 6);
+		dither_period = unpack_f(buffer, 10);
+		if(motor == 1 || motor == 0)
+			SoccerMotor1_SetAdvancedConstants(offset, dither_pwm_max, dither_period);
+		if(motor == 2 || motor == 0)
+			SoccerMotor2_SetAdvancedConstants(offset, dither_pwm_max, dither_period);
+		if(motor == 3 || motor == 0)
+			SoccerMotor3_SetAdvancedConstants(offset, dither_pwm_max, dither_period);
+		printd("Advanced constants set for motor %d. model_pwm_offset = %d, dither_pwm_max = %d, dither_period = %d\r\n", motor, (int)offset, (int)dither_pwm_max, (int)dither_period);
+		break;
 	case 't': //Set time constants (tick period and velocity filter corner frequency)
 		period_ms = unpack_f(buffer, 1);
 		tau_ms = unpack_f(buffer, 5);
@@ -141,7 +154,7 @@ void processCommand(char cmd)
 		printd("'%c' is not a valid command character\r\n", cmd);
 		break;
 	}
-	
+
 	// Flash blue light each time we recieve a message
 	LED1_Write(!LED1_Read());
 }
@@ -159,9 +172,12 @@ int getCommandLength(char cmd)
 	case 'k': //Set PID constants
 		return 14;
 		break;
+	case 'a': //Set advanced constants
+		return 14;
+		break;
 	case 't': //Set time constants (tick period and velocity filter corner frequency)
 		return 9;
-		break;		
+		break;
 	case 'v': //Get velocity
 		return 1;
 		break;

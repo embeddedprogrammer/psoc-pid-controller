@@ -32,6 +32,11 @@ float `$INSTANCE_NAME`_qpps = 1000;
 float `$INSTANCE_NAME`_integrator = 0;
 float `$INSTANCE_NAME`_desiredSpeed = 0;
 bool `$INSTANCE_NAME`_pidControlEnabled = false;
+float `$INSTANCE_NAME`_model_pwm_offset = 30.0;
+float `$INSTANCE_NAME`_dither_pwm_max = 10.0;
+float `$INSTANCE_NAME`_dither_sign = 1;
+float `$INSTANCE_NAME`_dither_period = 0.001;
+float `$INSTANCE_NAME`_dither_timer = 0;
 
 
 // *********************** INTERNAL FUNCTIONS (USER FUNCTIONS AT BOTTOM OF FILE) ***********************
@@ -44,7 +49,7 @@ void `$INSTANCE_NAME`_SetPowerInternal(float power)
 		power = 255;
 	else if(power < -255)
 		power = -255;
-	
+
     //Set the PWM duty cycle.
     if(power > 0)
     {
@@ -63,7 +68,7 @@ void `$INSTANCE_NAME`_SetPowerInternal(float power)
     }
 }
 
-// Note: The counter only counts up to +/-0x800 (32768). On the newer motors this 
+// Note: The counter only counts up to +/-0x800 (32768). On the newer motors this
 // corresponds to 87.6 rotations and the older motors this corresponds to 1.65
 // Therefore to avoid overflow we will reset the encoder counter each time the
 // count is read and use software to keep track of the counts.
@@ -100,7 +105,7 @@ void `$INSTANCE_NAME`_pidControl()
 {
 	// Calc error
 	float error = `$INSTANCE_NAME`_desiredSpeed - `$INSTANCE_NAME`_velocity;
-	
+
 	// Limit integrator
 	`$INSTANCE_NAME`_integrator += error*`$INSTANCE_NAME`_Ki*`$INSTANCE_NAME`_Ts;
 	float integratorMax = `$INSTANCE_NAME`_qpps;
@@ -108,9 +113,21 @@ void `$INSTANCE_NAME`_pidControl()
 		`$INSTANCE_NAME`_integrator = integratorMax;
 	else if(`$INSTANCE_NAME`_integrator < -integratorMax)
 		`$INSTANCE_NAME`_integrator = -integratorMax;
-	
+
 	// Calculate power
-	float power = (`$INSTANCE_NAME`_Kp*`$INSTANCE_NAME`_desiredSpeed + `$INSTANCE_NAME`_integrator)*255/`$INSTANCE_NAME`_qpps;
+	// float power = (`$INSTANCE_NAME`_Kp*`$INSTANCE_NAME`_desiredSpeed + `$INSTANCE_NAME`_integrator)*255/`$INSTANCE_NAME`_qpps;
+	float conversion_factor = 255/`$INSTANCE_NAME`_qpps;
+	float model_pwm = `$INSTANCE_NAME`_desiredSpeed*conversion_factor + `$INSTANCE_NAME`_model_pwm_offset;
+
+	float PI_pwm = (`$INSTANCE_NAME`_Kp*error + `$INSTANCE_NAME`_integrator)*conversion_factor;
+
+	`$INSTANCE_NAME`_dither_timer += `$INSTANCE_NAME`_Ts;
+	if(`$INSTANCE_NAME`_dither_timer >= `$INSTANCE_NAME`_dither_period) {
+		`$INSTANCE_NAME`_dither_timer = 0;
+		`$INSTANCE_NAME`_dither_sign *= -1;
+	}
+	float dither_pwm = `$INSTANCE_NAME`_dither_sign*`$INSTANCE_NAME`_dither_pwm_max;
+	float power = model_pwm + PI_pwm + dither_pwm;
 	`$INSTANCE_NAME`_SetPowerInternal(power);
 }
 
@@ -122,7 +139,7 @@ void `$INSTANCE_NAME`_Start(int period_ms, int tau_ms)
     //Start PWM and quadrature decoder
     `$INSTANCE_NAME`_PWM_Start();
     `$INSTANCE_NAME`_QuadDec_Start();
-	
+
 	//Store parameters
 	`$INSTANCE_NAME`_SetTickPeriodAndTau(period_ms, tau_ms);
 }
@@ -135,7 +152,7 @@ void `$INSTANCE_NAME`_SetTickPeriodAndTau(int period_ms, int tau_ms)
 	`$INSTANCE_NAME`_tau = tau_ms/1000.0;
 }
 
-// Disengage the motor control by writing a low to the enable pin. 
+// Disengage the motor control by writing a low to the enable pin.
 // This means that each motor terminal will be floating/high-impedance, which allows
 // the motor to spin freely. (Of course there will still be a lot of mechanical resistance
 // due to the gearbox and so forth, but there will be no electrical resistance)
@@ -143,7 +160,7 @@ void `$INSTANCE_NAME`_Disengage()
 {
 	//Turn off PID control
 	`$INSTANCE_NAME`_pidControlEnabled = false;
-	
+
 	//Set H-bridge enable pin
 	`$INSTANCE_NAME`_EN_Write(false);
 }
@@ -153,10 +170,10 @@ void `$INSTANCE_NAME`_SetPower(float power)
 {
 	//Turn off PID control
 	`$INSTANCE_NAME`_pidControlEnabled = false;
-	
+
 	//Set PWM duty cycle
 	`$INSTANCE_NAME`_SetPowerInternal(power);
-	
+
 	//Set H-bridge enable pin
 	`$INSTANCE_NAME`_EN_Write(true);
 }
@@ -171,21 +188,29 @@ void `$INSTANCE_NAME`_SetSpeed(float speed)
 		`$INSTANCE_NAME`_integrator = 0;
 		`$INSTANCE_NAME`_pidControlEnabled = true;
 		`$INSTANCE_NAME`_pidControl();
-		
+
 		// Set H-bridge enable pin
 		`$INSTANCE_NAME`_EN_Write(true);
 	}
-	
+
 	// Set desired speed
 	`$INSTANCE_NAME`_desiredSpeed = speed;
 }
 
-// Set PID constants. The qpps is the maximum quadrature pulses per second under expected load. 
+// Set PID constants. The qpps is the maximum quadrature pulses per second under expected load.
 void `$INSTANCE_NAME`_SetPIDConstants(float Kp, float Ki, float qpps)
 {
 	`$INSTANCE_NAME`_Kp = Kp;
 	`$INSTANCE_NAME`_Ki = Ki;
 	`$INSTANCE_NAME`_qpps = qpps;
+}
+
+// Set PID constants. The qpps is the maximum quadrature pulses per second under expected load.
+void `$INSTANCE_NAME`_SetAdvancedConstants(float offset, float dither_max, float dither_period)
+{
+	`$INSTANCE_NAME`_model_pwm_offset = offset;
+	`$INSTANCE_NAME`_dither_pwm_max = dither_max;
+	`$INSTANCE_NAME`_dither_period = dither_period;
 }
 
 // Read user encoder count. Resets count after read.
