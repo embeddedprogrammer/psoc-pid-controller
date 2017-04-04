@@ -14,6 +14,14 @@
 #include "stdbool.h"
 
 #define `$INSTANCE_NAME`_ENCODER_ZERO_COUNT 0x8000
+#define MAX_LOOKUP_TABLE_SIZE 255 // Assumes that only the positive half is recorded
+																	// and then mirrored to get negative values
+
+// Stores a given pwm_value with a certain speed
+struct lookup_entry_t {
+	float pwm_val;
+	float speed;
+}
 
 // TICK period
 float `$INSTANCE_NAME`_Ts;
@@ -37,6 +45,10 @@ float `$INSTANCE_NAME`_dither_pwm_max = 10.0;
 float `$INSTANCE_NAME`_dither_sign = 1;
 float `$INSTANCE_NAME`_dither_period = 0.001;
 float `$INSTANCE_NAME`_dither_timer = 0;
+
+// Lookup table
+bool `$INSTANCE_NAME`_lookup_table_enabled = false;
+lookup_entry_t `$INSTANCE_NAME`_lookup_table[MAX_LOOKUP_TABLE_SIZE];
 
 
 // *********************** INTERNAL FUNCTIONS (USER FUNCTIONS AT BOTTOM OF FILE) ***********************
@@ -116,8 +128,18 @@ void `$INSTANCE_NAME`_pidControl()
 
 	// Calculate power
 	// float power = (`$INSTANCE_NAME`_Kp*`$INSTANCE_NAME`_desiredSpeed + `$INSTANCE_NAME`_integrator)*255/`$INSTANCE_NAME`_qpps;
-	float conversion_factor = 255/`$INSTANCE_NAME`_qpps;
-	float model_pwm = `$INSTANCE_NAME`_desiredSpeed*conversion_factor + `$INSTANCE_NAME`_model_pwm_offset;
+	float conversion_factor, model_pwm;
+
+	if(`$INSTANCE_NAME`_lookup_table_enabled)
+	{
+		conversion_factor = `$INSTANCE_NAME`_lookup_table[0].pwm_val/`$INSTANCE_NAME`_lookup_table[0].speed;
+		model_pwm = `$INSTANCE_NAME`_getPowerFromLookupTable(`$INSTANCE_NAME`_desiredSpeed);
+	}
+	else
+	{
+		conversion_factor = `$INSTANCE_NAME`_lookup_table[0].pwm_val/`$INSTANCE_NAME`_lookup_table[0].speed;
+		model_pwm = `$INSTANCE_NAME`_getPowerFromLookupTable(`$INSTANCE_NAME`_desiredSpeed);		
+	}
 
 	float PI_pwm = (`$INSTANCE_NAME`_Kp*error + `$INSTANCE_NAME`_integrator)*conversion_factor;
 
@@ -129,6 +151,50 @@ void `$INSTANCE_NAME`_pidControl()
 	float dither_pwm = `$INSTANCE_NAME`_dither_sign*`$INSTANCE_NAME`_dither_pwm_max;
 	float power = model_pwm + PI_pwm + dither_pwm;
 	`$INSTANCE_NAME`_SetPowerInternal(power);
+}
+
+// Uses the lookup table to retrieve an appropriate pwm value for the given desired speed
+// -- Assumes that the lookup table goes from high to low speeds
+float `$INSTANCE_NAME`_getPowerFromLookupTable(float speed)
+{
+	float speed_high, speed_low, speed_range, range_proportion, pwm_high, pwm_low, pwm_range, power;
+	float abs_speed = fabs(speed);
+	int speed_sign = (speed > 0) ? 1 : ((speed < 0) ? -1 : 0);
+
+	if (speed == 0)
+	{
+			return 0;
+	}
+
+	// Find the index just smaller than the desired speed
+	int index = 0;
+	while (`$INSTANCE_NAME`_lookup_table[index].speed > abs_speed)
+	{
+		index++;
+	}
+
+	// Check for border case
+	if(index > 0)
+	{
+		// Interpolate between points
+		speed_high = `$INSTANCE_NAME`_lookup_table[index - 1].speed;
+		speed_low = `$INSTANCE_NAME`_lookup_table[index].speed;
+		speed_range = speed_high - speed_low;
+
+		range_proportion = (speed - speed_low)/speed_range;
+
+		pwm_high = `$INSTANCE_NAME`_lookup_table[index - 1].pwm_val;
+		pwm_low = `$INSTANCE_NAME`_lookup_table[index].pwm_val;
+		pwm_range = pwm_high - pwm_low;
+		power = pwm_low + range_proportion*pwm_range;
+	}
+	else
+	{
+		// If we didn't find a higher speed, just return the highest one recorded
+		power = `$INSTANCE_NAME`_lookup_table[0].speed;
+	}
+
+	return power*speed_sign;
 }
 
 // ******************************** TOP-LEVEL USER API FUNCTIONS ********************************
@@ -150,6 +216,20 @@ void `$INSTANCE_NAME`_SetTickPeriodAndTau(int period_ms, int tau_ms)
 	//Store parameters
 	`$INSTANCE_NAME`_Ts = period_ms/1000.0;
 	`$INSTANCE_NAME`_tau = tau_ms/1000.0;
+}
+
+void `$INSTANCE_NAME`_enableLookupTable()
+{
+	`$INSTANCE_NAME`_lookup_table_enabled = true;
+}
+
+void `$INSTANCE_NAME`_storeLookupValue(float pwm, float speed, int index)
+{
+	lookup_entry_t entry;
+	entry.pwm_val = pwm;
+	entry.speed = speed;
+
+	`$INSTANCE_NAME`_lookup_table[index] = entry;
 }
 
 // Disengage the motor control by writing a low to the enable pin.

@@ -114,6 +114,20 @@ void processCommand(char cmd)
 			SoccerMotor3_SetAdvancedConstants(offset, dither_pwm_max, dither_period);
 		printd("Advanced constants set for motor %d. model_pwm_offset = %d, dither_pwm_max = %d, dither_period = %d\r\n", motor, (int)offset, (int)dither_pwm_max, (int)dither_period);
 		break;
+	case 'l': //Store lookup table value
+		motor = (buffer[1] - '0');
+		pwm = unpack_f(buffer, 2);
+		speed = unpack_f(buffer, 6);
+		index = unpack_f(buffer, 10);
+
+		if(motor == 1 || motor == 0)
+			SoccerMotor1_storeLookupValue(pwm, speed, index);
+		if(motor == 2 || motor == 0)
+			SoccerMotor2_storeLookupValue(pwm, speed, index);
+		if(motor == 3 || motor == 0)
+			SoccerMotor3_storeLookupValue(pwm, speed, index);
+		printd("Lookup table values stored for motor %d. pwm = %d, speed = %d, index = %d\r\n", motor, (int)pwm, (int)speed, (int)index);
+		break;
 	case 't': //Set time constants (tick period and velocity filter corner frequency)
 		period_ms = unpack_f(buffer, 1);
 		tau_ms = unpack_f(buffer, 5);
@@ -173,6 +187,9 @@ int getCommandLength(char cmd)
 		return 14;
 		break;
 	case 'a': //Set advanced constants
+		return 14;
+		break;
+	case 'l': //Store lookup table value
 		return 14;
 		break;
 	case 't': //Set time constants (tick period and velocity filter corner frequency)
