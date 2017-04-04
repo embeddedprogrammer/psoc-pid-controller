@@ -137,8 +137,8 @@ void `$INSTANCE_NAME`_pidControl()
 	}
 	else
 	{
-		conversion_factor = `$INSTANCE_NAME`_lookup_table[0].pwm_val/`$INSTANCE_NAME`_lookup_table[0].speed;
-		model_pwm = `$INSTANCE_NAME`_getPowerFromLookupTable(`$INSTANCE_NAME`_desiredSpeed);		
+		conversion_factor = 255/`$INSTANCE_NAME`_qpps;
+		model_pwm = `$INSTANCE_NAME`_desiredSpeed*conversion_factor + `$INSTANCE_NAME`_model_pwm_offset;
 	}
 
 	float PI_pwm = (`$INSTANCE_NAME`_Kp*error + `$INSTANCE_NAME`_integrator)*conversion_factor;
@@ -218,9 +218,9 @@ void `$INSTANCE_NAME`_SetTickPeriodAndTau(int period_ms, int tau_ms)
 	`$INSTANCE_NAME`_tau = tau_ms/1000.0;
 }
 
-void `$INSTANCE_NAME`_enableLookupTable()
+void `$INSTANCE_NAME`_enableLookupTable(float enable)
 {
-	`$INSTANCE_NAME`_lookup_table_enabled = true;
+	`$INSTANCE_NAME`_lookup_table_enabled = enable;
 }
 
 void `$INSTANCE_NAME`_storeLookupValue(float pwm, float speed, int index)

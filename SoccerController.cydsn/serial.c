@@ -66,8 +66,9 @@ void sendResponse(char* buffer, int length)
 
 void processCommand(char cmd)
 {
-	float val1, val2, val3, qpps, Kp, Ki, period_ms, tau_ms;
-	int motor;
+	float val1, val2, val3, qpps, Kp, Ki, period_ms, tau_ms, offset, dither_pwm_max, dither_period, pwm, speed;
+	bool enable;
+	int motor, index;
 	switch(cmd)
 	{
 	case 'p': //Set power
@@ -113,6 +114,13 @@ void processCommand(char cmd)
 		if(motor == 3 || motor == 0)
 			SoccerMotor3_SetAdvancedConstants(offset, dither_pwm_max, dither_period);
 		printd("Advanced constants set for motor %d. model_pwm_offset = %d, dither_pwm_max = %d, dither_period = %d\r\n", motor, (int)offset, (int)dither_pwm_max, (int)dither_period);
+		break;
+	case 'n': //Enable lookup table
+		enable = unpack_f(buffer, 0);
+		SoccerMotor1_enableLookupTable(enable);
+		SoccerMotor2_enableLookupTable(enable);
+		SoccerMotor3_enableLookupTable(enable);
+		printd("Lookup table enabled.\r\n");
 		break;
 	case 'l': //Store lookup table value
 		motor = (buffer[1] - '0');
@@ -188,6 +196,9 @@ int getCommandLength(char cmd)
 		break;
 	case 'a': //Set advanced constants
 		return 14;
+		break;
+	case 'n': //Enable lookup table
+		return 4;
 		break;
 	case 'l': //Store lookup table value
 		return 14;
