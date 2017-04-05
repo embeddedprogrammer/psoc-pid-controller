@@ -66,8 +66,7 @@ void sendResponse(char* buffer, int length)
 
 void processCommand(char cmd)
 {
-	float val1, val2, val3, qpps, Kp, Ki, period_ms, tau_ms, offset, dither_pwm_max, dither_period, pwm, speed;
-	bool enable;
+	float val1, val2, val3, qpps, Kp, Ki, period_ms, tau_ms, offset, dither_pwm_max, dither_period, pwm, speed, enable;
 	int motor, index;
 	switch(cmd)
 	{

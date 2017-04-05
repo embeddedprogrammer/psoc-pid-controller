@@ -39,6 +39,9 @@ void `$INSTANCE_NAME`_SetPIDConstants(float Kp, float Ki, float qpps);
 // Set model and dither constants. offset and dither max are in PWM, period is in seconds
 void `$INSTANCE_NAME`_SetAdvancedConstants(float offset, float dither_max, float dither_period);
 
+// Finds an appropriate PWM value to match the desired speed input
+float `$INSTANCE_NAME`_getPowerFromLookupTable(float speed);
+
 // Enables/disables the lookup table model
 void `$INSTANCE_NAME`_enableLookupTable(float enable);
 

@@ -14,14 +14,14 @@
 #include "stdbool.h"
 
 #define `$INSTANCE_NAME`_ENCODER_ZERO_COUNT 0x8000
-#define MAX_LOOKUP_TABLE_SIZE 255 // Assumes that only the positive half is recorded
+#define MAX_LOOKUP_TABLE_SIZE 52 // Assumes that only the positive half is recorded
 																	// and then mirrored to get negative values
 
 // Stores a given pwm_value with a certain speed
-struct lookup_entry_t {
+typedef struct {
 	float pwm_val;
 	float speed;
-}
+} lookup_entry_t;
 
 // TICK period
 float `$INSTANCE_NAME`_Ts;
@@ -157,9 +157,9 @@ void `$INSTANCE_NAME`_pidControl()
 // -- Assumes that the lookup table goes from high to low speeds
 float `$INSTANCE_NAME`_getPowerFromLookupTable(float speed)
 {
-	float speed_high, speed_low, speed_range, range_proportion, pwm_high, pwm_low, pwm_range, power;
-	float abs_speed = fabs(speed);
-	int speed_sign = (speed > 0) ? 1 : ((speed < 0) ? -1 : 0);
+	float speed_high, speed_low, speed_range, range_proportion, pwm_high, pwm_low, pwm_range, power;	
+	int speed_sign = (speed > 0) ? 1 : -1;
+    float abs_speed = speed * (float)speed_sign;
 
 	if (speed == 0)
 	{
