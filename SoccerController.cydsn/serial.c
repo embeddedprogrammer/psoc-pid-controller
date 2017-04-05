@@ -200,7 +200,7 @@ int getCommandLength(char cmd)
 		return 4;
 		break;
 	case 'l': //Store lookup table value
-		return 14;
+		return 12;
 		break;
 	case 't': //Set time constants (tick period and velocity filter corner frequency)
 		return 9;
