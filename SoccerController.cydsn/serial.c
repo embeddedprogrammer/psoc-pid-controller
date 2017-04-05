@@ -125,7 +125,7 @@ void processCommand(char cmd)
 		motor = (buffer[1] - '0');
 		pwm = unpack_f(buffer, 2);
 		speed = unpack_f(buffer, 6);
-		index = unpack_f(buffer, 10);
+		index = (int)unpack_f(buffer, 10);
 
 		if(motor == 1 || motor == 0)
 			SoccerMotor1_storeLookupValue(pwm, speed, index);
@@ -200,7 +200,7 @@ int getCommandLength(char cmd)
 		return 4;
 		break;
 	case 'l': //Store lookup table value
-		return 12;
+		return 14;
 		break;
 	case 't': //Set time constants (tick period and velocity filter corner frequency)
 		return 9;
