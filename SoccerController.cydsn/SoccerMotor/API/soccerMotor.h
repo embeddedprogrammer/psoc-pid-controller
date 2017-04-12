@@ -37,7 +37,7 @@ void `$INSTANCE_NAME`_SetSpeed(float speed);
 void `$INSTANCE_NAME`_SetPIDConstants(float Kp, float Ki, float qpps);
 
 // Set model and dither constants. offset and dither max are in PWM, period is in seconds
-void `$INSTANCE_NAME`_SetAdvancedConstants(float offset, float dither_max, float dither_period)
+void `$INSTANCE_NAME`_SetAdvancedConstants(float offset, float dither_max, float dither_period);
 
 // Read user encoder count. Resets count after read.
 int `$INSTANCE_NAME`_ReadEncoderCount();

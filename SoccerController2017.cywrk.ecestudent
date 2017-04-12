@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Components">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SoccerController2017\SoccerController">
+<ExpandedNodeIds>
+<v>SoccerController2017</v>
+<v>SoccerController2017\SoccerController</v>
+<v>SoccerController2017\SoccerController\TopDesign</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Pins</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Analog</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Clocks</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Interrupts</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\System</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Directives</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Flash Security</v>
+<v>SoccerController2017\SoccerController\Header Files</v>
+<v>SoccerController2017\SoccerController\Header Files\cyapicallbacks.h</v>
+<v>SoccerController2017\SoccerController\Header Files\serial.h</v>
+<v>SoccerController2017\SoccerController\Source Files</v>
+<v>SoccerController2017\SoccerController\Source Files\main.c</v>
+<v>SoccerController2017\SoccerController\Source Files\serial.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Bootloadable_1</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Bootloadable_1\Bootloadable_1.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Bootloadable_1\Bootloadable_1.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_1</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_1\Clock_1.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_1\Clock_1.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_2</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_2\Clock_2.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_2\Clock_2.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_3</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_3\Clock_3.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_3\Clock_3.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cmsis_armcc.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cmsis_gcc.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyFlash.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyLib.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyLib.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cypins.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cyPm.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_lfclk</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\LED1</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\LED1\LED1.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\LED1\LED1.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\LED1\LED1_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\LED1\LED1_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1\SoccerMotor1_soccerMotor.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1\SoccerMotor1_soccerMotor.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_EN</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_EN\SoccerMotor1_EN.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_EN\SoccerMotor1_EN.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_EN\SoccerMotor1_EN_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_EN\SoccerMotor1_EN_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Neg</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Neg\SoccerMotor1_Neg.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Neg\SoccerMotor1_Neg.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Neg\SoccerMotor1_Neg_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Neg\SoccerMotor1_Neg_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Pos</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Pos\SoccerMotor1_Pos.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Pos\SoccerMotor1_Pos.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Pos\SoccerMotor1_Pos_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_Pos\SoccerMotor1_Pos_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_PWM</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_PWM\SoccerMotor1_PWM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_PWM\SoccerMotor1_PWM.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_PWM\SoccerMotor1_PWM_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadA</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadA\SoccerMotor1_QuadA.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadA\SoccerMotor1_QuadA.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadA\SoccerMotor1_QuadA_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadA\SoccerMotor1_QuadA_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadB</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadB\SoccerMotor1_QuadB.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadB\SoccerMotor1_QuadB.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadB\SoccerMotor1_QuadB_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadB\SoccerMotor1_QuadB_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadDec</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadDec\SoccerMotor1_QuadDec.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadDec\SoccerMotor1_QuadDec.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor1_QuadDec\SoccerMotor1_QuadDec_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2\SoccerMotor2_soccerMotor.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2\SoccerMotor2_soccerMotor.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_EN</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_EN\SoccerMotor2_EN.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_EN\SoccerMotor2_EN.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_EN\SoccerMotor2_EN_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_EN\SoccerMotor2_EN_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Neg</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Neg\SoccerMotor2_Neg.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Neg\SoccerMotor2_Neg.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Neg\SoccerMotor2_Neg_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Neg\SoccerMotor2_Neg_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Pos</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Pos\SoccerMotor2_Pos.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Pos\SoccerMotor2_Pos.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Pos\SoccerMotor2_Pos_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_Pos\SoccerMotor2_Pos_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_PWM</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_PWM\SoccerMotor2_PWM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_PWM\SoccerMotor2_PWM.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_PWM\SoccerMotor2_PWM_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadA</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadA\SoccerMotor2_QuadA.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadA\SoccerMotor2_QuadA.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadA\SoccerMotor2_QuadA_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadA\SoccerMotor2_QuadA_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadB</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadB\SoccerMotor2_QuadB.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadB\SoccerMotor2_QuadB.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadB\SoccerMotor2_QuadB_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadB\SoccerMotor2_QuadB_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadDec</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadDec\SoccerMotor2_QuadDec.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadDec\SoccerMotor2_QuadDec.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor2_QuadDec\SoccerMotor2_QuadDec_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3\SoccerMotor3_soccerMotor.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3\SoccerMotor3_soccerMotor.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_EN</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_EN\SoccerMotor3_EN.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_EN\SoccerMotor3_EN.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_EN\SoccerMotor3_EN_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_EN\SoccerMotor3_EN_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Neg</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Neg\SoccerMotor3_Neg.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Neg\SoccerMotor3_Neg.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Neg\SoccerMotor3_Neg_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Neg\SoccerMotor3_Neg_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Pos</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Pos\SoccerMotor3_Pos.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Pos\SoccerMotor3_Pos.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Pos\SoccerMotor3_Pos_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_Pos\SoccerMotor3_Pos_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_PWM</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_PWM\SoccerMotor3_PWM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_PWM\SoccerMotor3_PWM.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_PWM\SoccerMotor3_PWM_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadA</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadA\SoccerMotor3_QuadA.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadA\SoccerMotor3_QuadA.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadA\SoccerMotor3_QuadA_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadA\SoccerMotor3_QuadA_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadB</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadB\SoccerMotor3_QuadB.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadB\SoccerMotor3_QuadB.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadB\SoccerMotor3_QuadB_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadB\SoccerMotor3_QuadB_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadDec</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadDec\SoccerMotor3_QuadDec.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadDec\SoccerMotor3_QuadDec.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\SoccerMotor3_QuadDec\SoccerMotor3_QuadDec_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\tick_INT</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\tick_INT\Tick_INT.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\tick_INT\Tick_INT.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Tick_Timer</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Tick_Timer\Tick_Timer.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Tick_Timer\Tick_Timer.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Tick_Timer\Tick_Timer_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\tinyprintf</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\tinyprintf\tinyprintf_printf.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\tinyprintf\tinyprintf_printf.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_BOOT.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_BOOT.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_PINS.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_PVT.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_SPI_UART.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_SPI_UART.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_SPI_UART_INT.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_SPI_UART_PVT.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_UART.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART\UART_UART_BOOT.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_INT</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_INT\UART_INT.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_INT\UART_INT.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_rx</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_rx\UART_rx.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_rx\UART_rx.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_rx\UART_rx_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_rx\UART_rx_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_SCBCLK</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_SCBCLK\UART_SCBCLK.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_SCBCLK\UART_SCBCLK.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_tx</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_tx\UART_tx.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_tx\UART_tx.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_tx\UART_tx_aliases.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\UART_tx\UART_tx_PM.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cybootloader.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cybootloader.icf</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cyfitter.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cymetadata.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\project.h</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>SoccerController2017</v>
+<v>SoccerController2017\SoccerController</v>
+<v>SoccerController2017\SoccerController\TopDesign</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Pins</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Analog</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Clocks</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Interrupts</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\System</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Directives</v>
+<v>SoccerController2017\SoccerController\SoccerController.cydwr\Flash Security</v>
+<v>SoccerController2017\SoccerController\Header Files</v>
+<v>SoccerController2017\SoccerController\Header Files\cyapicallbacks.h</v>
+<v>SoccerController2017\SoccerController\Header Files\serial.h</v>
+<v>SoccerController2017\SoccerController\Source Files</v>
+<v>SoccerController2017\SoccerController\Source Files\main.c</v>
+<v>SoccerController2017\SoccerController\Source Files\serial.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Bootloadable_1</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Bootloadable_1\Bootloadable_1.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Bootloadable_1\Bootloadable_1.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_1</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_1\Clock_1.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_1\Clock_1.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_2</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_2\Clock_2.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_2\Clock_2.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_3</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_3\Clock_3.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\Clock_3\Clock_3.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\Cm0Start.c</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cmsis_armcc.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\cmsis_gcc.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\core_cm0.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\core_cm0_psoc4.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\core_cmFunc.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\core_cmInstr.h</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyBootAsmGnu.s</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyBootAsmIar.s</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyBootAsmRv.s</v>
+<v>SoccerController2017\SoccerController\Generated_Source\PSoC4\cy_boot\CyFlash.c</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SoccerController2017\SoccerController\SoccerMotor\API\soccerMotor.c">
+<ExpandedNodeIds>
+<v>SoccerController2017</v>
+<v>SoccerController2017\SoccerController</v>
+<v>SoccerController2017\SoccerController\SoccerMotor</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\API</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\API\soccerMotor.c</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\API\soccerMotor.h</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\SoccerMotor.cysch</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\SoccerMotor.cysym</v>
+<v>SoccerController2017\SoccerController\tinyprintf</v>
+<v>SoccerController2017\SoccerController\tinyprintf\API\printf.c</v>
+<v>SoccerController2017\SoccerController\tinyprintf\API\printf.h</v>
+<v>SoccerController2017\SoccerController\tinyprintf\tinyprintf.cysym</v>
+<v>SoccerController2017\SoccerController\TopDesign</v>
+<v>SoccerController2017\SoccerController\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>SoccerController2017</v>
+<v>SoccerController2017\SoccerController</v>
+<v>SoccerController2017\SoccerController\SoccerMotor</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\API</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\API\soccerMotor.c</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\API\soccerMotor.h</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\SoccerMotor.cysch</v>
+<v>SoccerController2017\SoccerController\SoccerMotor\SoccerMotor.cysym</v>
+<v>SoccerController2017\SoccerController\tinyprintf</v>
+<v>SoccerController2017\SoccerController\tinyprintf\API</v>
+<v>SoccerController2017\SoccerController\tinyprintf\tinyprintf.cysym</v>
+<v>SoccerController2017\SoccerController\TopDesign</v>
+<v>SoccerController2017\SoccerController\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>SoccerController2017</v>
+<v>SoccerController2017\SoccerController</v>
+<v>SoccerController2017\SoccerController\CortexM0</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Bootloadable_1.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Clock_1.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Clock_2.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Clock_3.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cybootloader.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\LED1.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\LED1_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\serial.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_EN.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_EN_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_Neg.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_Neg_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_Pos.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_Pos_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_PWM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_PWM_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadA.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadA_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadB.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadB_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadDec.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadDec_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_soccerMotor.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_EN.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_EN_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Neg.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Neg_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Pos.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Pos_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_PWM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_PWM_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_QuadA.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_QuadA_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_QuadB.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_QuadB_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_QuadDec.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_QuadDec_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_soccerMotor.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_EN.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_EN_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_Neg.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_Neg_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_Pos.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_Pos_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_PWM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_PWM_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_QuadA.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_QuadA_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_QuadB.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_QuadB_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_QuadDec.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_QuadDec_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor3_soccerMotor.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Tick_Timer.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Tick_Timer_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\tinyprintf_printf.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_INT.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART_BOOT.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\SoccerController.cyacd</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\SoccerController.elf</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\SoccerController.hex</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\SoccerController.map</v>
+<v>SoccerController2017\SoccerController\SoccerController.gpdsc</v>
+<v>SoccerController2017\SoccerController\SoccerController.rpt</v>
+<v>SoccerController2017\SoccerController\SoccerController_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>SoccerController2017</v>
+<v>SoccerController2017\SoccerController</v>
+<v>SoccerController2017\SoccerController\CortexM0</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Bootloadable_1.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Clock_1.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Clock_2.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Clock_3.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cybootloader.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\LED1.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\LED1_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\serial.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_EN.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_EN_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_Neg.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_Neg_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_Pos.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_Pos_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_PWM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_PWM_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadA.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadA_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadB.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadB_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadDec.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_QuadDec_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor1_soccerMotor.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_EN.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_EN_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Neg.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Neg_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Pos.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_Pos_PM.lst</v>
+<v>SoccerController2017\SoccerController\CortexM0\ARM_GCC_493\Debug\Listing Files\SoccerMotor2_PWM.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>SoccerController2017</v>
+<v>SoccerController2017\SoccerController</v>
+<v>SoccerController2017\SoccerController\PSoC 4 Architecture TRM</v>
+<v>SoccerController2017\SoccerController\PSoC 4200 Family Datasheet</v>
+<v>SoccerController2017\SoccerController\System Reference Guides</v>
+<v>SoccerController2017\SoccerController\System Reference Guides\cy_boot_v5_50</v>
+<v>SoccerController2017\SoccerController\System Reference Guides\cy_lfclk_v1_10</v>
+<v>SoccerController2017\SoccerController\Bootloadable_v1_50.pdf</v>
+<v>SoccerController2017\SoccerController\cy_clock_v2_20</v>
+<v>SoccerController2017\SoccerController\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>SoccerController2017\SoccerController\cy_isr_v1_70</v>
+<v>SoccerController2017\SoccerController\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>SoccerController2017\SoccerController\cy_pins_v2_20.pdf</v>
+<v>SoccerController2017\SoccerController\SCB_P4_v3_20.pdf</v>
+<v>SoccerController2017\SoccerController\TCPWM_P4_v2_10.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>SoccerController2017</v>
+<v>SoccerController2017\SoccerController</v>
+<v>SoccerController2017\SoccerController\PSoC 4 Architecture TRM</v>
+<v>SoccerController2017\SoccerController\PSoC 4200 Family Datasheet</v>
+<v>SoccerController2017\SoccerController\System Reference Guides</v>
+<v>SoccerController2017\SoccerController\System Reference Guides\cy_boot_v5_50</v>
+<v>SoccerController2017\SoccerController\System Reference Guides\cy_lfclk_v1_10</v>
+<v>SoccerController2017\SoccerController\Bootloadable_v1_50.pdf</v>
+<v>SoccerController2017\SoccerController\cy_clock_v2_20</v>
+<v>SoccerController2017\SoccerController\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>SoccerController2017\SoccerController\cy_isr_v1_70</v>
+<v>SoccerController2017\SoccerController\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>SoccerController2017\SoccerController\cy_pins_v2_20.pdf</v>
+<v>SoccerController2017\SoccerController\SCB_P4_v3_20.pdf</v>
+<v>SoccerController2017\SoccerController\TCPWM_P4_v2_10.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\SoccerController.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\SoccerController.cydsn\SoccerController.cydwr" />
+<name v=".\SoccerController.cydsn\main.c" />
+<name v=".\SoccerController.cydsn\serial.c" />
+<name v=".\SoccerController.cydsn\Generated_Source\PSoC4\SoccerMotor1_soccerMotor.c" />
+<name v=".\SoccerController.cydsn\Generated_Source\PSoC4\SoccerMotor1_soccerMotor.h" />
+<name v=".\SoccerController.cydsn\SoccerMotor\API\soccerMotor.c" />
+<name v=".\SoccerController.cydsn\Generated_Source\PSoC4\SoccerMotor2_soccerMotor.h" />
+<name v=".\SoccerController.cydsn\SoccerMotor\API\soccerMotor.h" />
+<name v=".\SoccerController.cydsn\SoccerMotor\SoccerMotor.cysch" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1098, 516" SelectedTabbedMdiWindow="c01c670c-adce-449e-a1b6-d03f47a48fc7"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="4c56be0e-0eef-4db5-8252-16ab04d81152" /><DocumentWindow Key="62718cb5-ae42-4380-b993-4822d10ac4f9" Guid="a9fd2ddb-f960-4300-b422-517abe4e1852" /><DocumentWindow Key="371c1deb-e76f-4651-bafb-3db55bcd9e84" Guid="cc553bb9-7eda-44e4-a77d-172500984f3e" /><DocumentWindow Key="4d0934fd-6328-4eb8-a6a7-66020fa49ba8" Guid="1aaae3e9-2ea7-4904-9040-24951a8a2442" /><DocumentWindow Key="66be7e62-41a4-401f-bcf9-6148f0766fd2" Guid="c01c670c-adce-449e-a1b6-d03f47a48fc7" /><DocumentWindow Key="4197c3bc-71b5-45bc-9d00-73bf076f487f" Guid="54056a56-30f4-47e6-a7b1-45bffddf219b" /><DocumentWindow Key="3ebabcb9-9b1a-4d79-8276-0a79b84a2439" Guid="975f450b-0a40-4cf5-8e9a-c4f6a989f5a0" /><DocumentWindow Key="9a9be848-5fb3-4633-9c0a-e25b80ffd376" Guid="f6801eac-0bc4-4b89-94b2-c1c41730b8bd" /><DocumentWindow Key="05e0d5d6-f7a0-438e-a963-1b9bdfa74e8b" Guid="8b3ae040-9308-47ca-bb3c-a7eab5548e12" /><DocumentWindow Key="6185f9e3-00f3-4af4-b472-9b490c4d74c0" Guid="6ee85ada-14f1-4fbe-b717-6408a2cf7d34" /><DocumentWindow Key="f196ffbf-e188-4586-b710-e44e52197d06" Guid="2e848af7-3008-455e-aba0-a14001a4fed5" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
