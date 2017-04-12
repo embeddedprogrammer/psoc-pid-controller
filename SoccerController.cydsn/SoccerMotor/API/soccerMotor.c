@@ -117,7 +117,7 @@ void `$INSTANCE_NAME`_pidControl()
 	// Calculate power
 	// float power = (`$INSTANCE_NAME`_Kp*`$INSTANCE_NAME`_desiredSpeed + `$INSTANCE_NAME`_integrator)*255/`$INSTANCE_NAME`_qpps;
 	float conversion_factor = 255/`$INSTANCE_NAME`_qpps;
-    
+	
 	float speed_sign = `$INSTANCE_NAME`_desiredSpeed > 0 ? 1.0 : -1.0;
 	float model_pwm = `$INSTANCE_NAME`_desiredSpeed*conversion_factor + speed_sign*`$INSTANCE_NAME`_model_pwm_offset;
 
